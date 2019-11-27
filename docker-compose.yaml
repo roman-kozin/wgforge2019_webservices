@@ -1,0 +1,102 @@
+version: '3'
+services:
+  frontend:
+    container_name: frontend
+    image: dwarflord/wgforge-webservices-frontend:latest
+    ports:
+      - "80:80"
+    restart: always
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    networks:
+      - wgforge
+
+  backend_main:
+    container_name: backend_main
+    image: dwarflord/wgforge-webservices-backend:latest
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+    networks:
+      - wgforge
+
+  backend_red:
+    container_name: backend_red
+    image: dwarflord/wgforge-webservices-backend:latest
+    restart: always
+    environment:
+      - TEXT_COLOR=red
+      - BACKGROUND_COLOR=yellow
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+    networks:
+      - wgforge
+
+  backend_green:
+    container_name: backend_green
+    image: dwarflord/wgforge-webservices-backend:latest
+    restart: always
+    environment:
+      - TEXT_COLOR=green
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+    networks:
+      - wgforge
+
+  seafile:
+    container_name: seafile
+    image: seafileltd/seafile:latest
+    restart: always
+    environment:
+      - SEAFILE_ADMIN_EMAIL=admin@disk.wgf2019.local
+      - SEAFILE_ADMIN_PASSWORD=wgf2019
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+    networks:
+      - wgforge
+    volumes:
+      - seafile:/opt/seafile-data
+
+  dokuwiki_1:
+    container_name: dokuwiki_1
+    image: dwarflord/wgforge-webservices-dokuwiki:latest
+    restart: always
+    volumes:
+      - "./dokuwiki:/var/www/"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    networks:
+      - wgforge
+
+  dokuwiki_2:
+    container_name: dokuwiki_2
+    image: dwarflord/wgforge-webservices-dokuwiki:latest
+    restart: always
+    volumes:
+      - "./dokuwiki:/var/www/"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    networks:
+      - wgforge
+
+networks:
+  wgforge:
+    driver: bridge
+
+volumes:
+  seafile:

@@ -1,0 +1,8 @@
+====== WGForge 2019 ======
+===== Webservices =====
+
+[[веб-сервис?]] \\
+[[http://wiki.wgf2019.local/pi.php|phpinfo]]
+
+===== Highload =====
+{{:xs3aybzcrm.jpg?600|}}
