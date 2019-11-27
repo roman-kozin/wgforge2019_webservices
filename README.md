@@ -8,6 +8,7 @@
 
 #### Добавляем домены в hosts
 * Для Linux и Mac, добавляем в файл /etc/hosts, строку в конец файла \
+\
 `sudo echo '127.0.0.1 wgf2019.local disk.wgf2019.local wiki.wgf2019.local' >> /etc/hosts`
 * Для Windows, открываем в блокноте файл c:\windows\system32\drivers\etc\hosts и прописывам в конце файла строчки:
 ```
@@ -17,7 +18,7 @@
 ```
 
 #### Запуск контейнеров.
-* Клонируем репозиторий и переходим в каталог с репозиторием. \
+Клонируем репозиторий и переходим в каталог с репозиторием.
 ```
 git clone https://github.com/roman-kozin/wgforge2019_webservices.git
 ~$ cd wgforge2019_webservices/
