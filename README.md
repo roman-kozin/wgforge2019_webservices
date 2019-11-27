@@ -2,7 +2,7 @@
 # WGforge2019
 ## WebServices
 
-#### Установка и настройка
+### Установка и настройка
 * Устанавливаем [docker-compose](https://docs.docker.com/compose/install/)
 * Или через pip `~$ pip install docker-compose`
 
