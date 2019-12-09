@@ -2,6 +2,7 @@ version: '3'
 services:
   frontend:
     container_name: frontend
+    #build: ./frontend/
     image: dwarflord/wgforge-webservices-frontend:latest
     ports:
       - "80:80"
@@ -17,6 +18,7 @@ services:
   backend_main:
     container_name: backend_main
     image: dwarflord/wgforge-webservices-backend:latest
+    #build: ./backend/
     restart: always
     deploy:
       resources:
@@ -28,6 +30,7 @@ services:
   backend_red:
     container_name: backend_red
     image: dwarflord/wgforge-webservices-backend:latest
+    #build: ./backend/
     restart: always
     environment:
       - TEXT_COLOR=red
@@ -42,6 +45,7 @@ services:
   backend_green:
     container_name: backend_green
     image: dwarflord/wgforge-webservices-backend:latest
+    #build: ./backend/
     restart: always
     environment:
       - TEXT_COLOR=green
@@ -71,6 +75,7 @@ services:
   dokuwiki_1:
     container_name: dokuwiki_1
     image: dwarflord/wgforge-webservices-dokuwiki:latest
+    #build: ./wiki/
     restart: always
     volumes:
       - "./dokuwiki:/var/www/"
@@ -84,6 +89,7 @@ services:
   dokuwiki_2:
     container_name: dokuwiki_2
     image: dwarflord/wgforge-webservices-dokuwiki:latest
+    #build: ./wiki/
     restart: always
     volumes:
       - "./dokuwiki:/var/www/"
